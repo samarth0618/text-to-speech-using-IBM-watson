@@ -3,15 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Login | TravelMate Bot</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>text to speach</h1>
-  <textarea name="text" id="textinput" rows="4" cols="50" placeholder="Enter your Text"></textarea>
-  <button onclick="speak()">Text To Speech</button>
+  <div class="login-box">
+    <h2>Login to TravelMate Bot</h2>
+    <form onsubmit="login(event)">
+      <input type="text" id="username" placeholder="Enter Username" required>
+      <input type="password" id="password" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
   <script>
-    const TTS_API_KEY ="EQKdIzN_Z74f8zhBUVXH4fhkl1OAcg006BJeQC1XPfDB"
-    const TTS_URL = "https://api.au-syd.text-to-speech.watson.cloud.ibm.com/instances/0a607a0a-2c5c-4bb1-8756-da12d0c8261f"
+    function login(event) {
+      event.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if(user && pass) {
+        window.location.href = "home.html";
+      } else {
+        alert("Please enter username and password!");
+      }
+    }
   </script>
 </body>
 </html>
